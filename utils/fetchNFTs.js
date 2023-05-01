@@ -70,4 +70,12 @@ const fetchNFTs = async (owner, contractAddress, setNFTs) => {
     
 }
 
-export {fetchNFTs,getNFTsMetadata};
+const fetchSampleNFTData = async () => {
+    const response = await fetch(
+      "https://stombprd01.blob.core.windows.net/static/tokensinfo/mb_result.json"
+    );
+    const data = await response.json();
+    return data;
+  };
+
+export {fetchNFTs,getNFTsMetadata, fetchSampleNFTData};
