@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { fetchSampleNFTData } from "../utils/fetchNFTs";
 import styled from "styled-components";
 
@@ -96,8 +96,6 @@ const OpenSeaLink = styled.a`
   text-indent: -9999px;
   overflow: hidden;
 `;
-
-
 
 const filterOptions = [
     {
@@ -205,13 +203,11 @@ const filterOptions = [
         [filterName]: isChecked,
       }));
     };
-
-
   
-    
     return (
-        <div>
-          <MainContainer>
+      <Fragment>
+        <MainContainer>
+          <FiltersContainer>
             <FiltersSection>
               <h2>Filter by Traits</h2>
               {filterOptions.map((filter) => (
@@ -226,27 +222,28 @@ const filterOptions = [
                 </FilterBox>
               ))}
             </FiltersSection>
-            <GridContainer>
-              <h2>Filtered NFTs</h2>
-              <Grid>
+          </FiltersContainer>
+          <GridContainer>
+            <h2>Filtered NFTs</h2>
+            <Grid>
               {filterNFTs().map((nft) => {
-  const openSeaUrl = `https://opensea.io/assets/ethereum/0xd9c036e9eef725e5aca4a22239a23feb47c3f05d/${nft.id}`;
-
-  return (
-    <GridItem key={nft.id}>
-      <GridItemImage src={nft.image} alt={nft.title} />
-      <NFTNumber>#{nft.id}</NFTNumber>
-      <OpenSeaLink href={openSeaUrl}>
-        <img src={"../public/img/opensea-logo.svg"} alt="OpenSea Logo" />
-      </OpenSeaLink>
-    </GridItem>
-  );
-})}
-              </Grid>
-            </GridContainer>
-          </MainContainer>
-        </div>
-      );
-    };
-    
-    export default FilterNFTs;
+                const openSeaUrl = `https://opensea.io/assets/ethereum/0xd9c036e9eef725e5aca4a22239a23feb47c3f05d/${nft.id}`;
+  
+                return (
+                  <GridItem key={nft.id}>
+                    <GridItemImage src={nft.image} alt={nft.title} />
+                    <NFTNumber>#{nft.id}</NFTNumber>
+                    <OpenSeaLink href={openSeaUrl}>
+                      <img src={`${process.env.PUBLIC_URL}/img/opensea-logo.svg`} alt="OpenSea Logo" />
+                    </OpenSeaLink>
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </GridContainer>
+        </MainContainer>
+      </Fragment>
+    );
+  };
+  
+  export default FilterNFTs;
