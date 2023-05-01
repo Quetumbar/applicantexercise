@@ -84,9 +84,9 @@ const NFTNumber = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 8px;
+  padding: 0px 0px 2px 5px;
   color: #999;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border-radius: 0 0 12px 12px;
 `;
