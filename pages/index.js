@@ -22,9 +22,6 @@ export default function Home() {
       </Head>
 
       <HomePageWrapper>
-        <div className="header-home-intro">
-          <h1>Midnight Breeze Applicant Exercise - Quetumbar</h1>
-        </div>
         <FilterNFTs />
       </HomePageWrapper>
     </div>

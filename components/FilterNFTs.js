@@ -31,11 +31,6 @@ const FilterCheckbox = styled.input`
   margin-right: 8px;
 `;
 
-const FilterLabel = styled.label`
-  margin-bottom: 8px;
-  display: block;
-`;
-
 const FilterName = styled.span`
   margin-left: 8px;
 `;
@@ -69,33 +64,33 @@ const Grid = styled.div`
 `;
 
 const GridItem = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 const GridItemImage = styled.img`
+  border-radius: 12px 12px 0 0;
   width: 100%;
   height: auto;
-  object-fit: cover;
-  border-radius: 10px;
 `;
 
 const NFTNumber = styled.div`
-  margin-top: 10px;
-  font-size: 14px;
-  font-family: "oakes-grotesk-regular", sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
   color: #999;
+  background-color: black;
+  color: white;
+  border-radius: 0 0 12px 12px;
 `;
 
-const OpenSeaLink = styled.a`
-  margin-top: 5px;
-  display: block;
-  width: 24px;
-  height: 24px;
-  text-indent: -9999px;
-  overflow: hidden;
-`;
 
 const filterOptions = [
     {
@@ -168,7 +163,6 @@ const filterOptions = [
     },
   ];
   
-
   const FilterNFTs = () => {
     const [nfts, setNfts] = useState([]);
   
@@ -209,7 +203,7 @@ const filterOptions = [
         <MainContainer>
           <FiltersContainer>
             <FiltersSection>
-              <h2>Filter by Traits</h2>
+              <h2>Community Traits</h2>
               {filterOptions.map((filter) => (
                 <FilterBox key={filter.name} selected={selectedTraits[filter.name]}>
                   <FilterCheckbox
@@ -224,19 +218,15 @@ const filterOptions = [
             </FiltersSection>
           </FiltersContainer>
           <GridContainer>
-            <h2>Filtered NFTs</h2>
             <Grid>
               {filterNFTs().map((nft) => {
                 const openSeaUrl = `https://opensea.io/assets/ethereum/0xd9c036e9eef725e5aca4a22239a23feb47c3f05d/${nft.id}`;
   
                 return (
-                  <GridItem key={nft.id}>
-                    <GridItemImage src={nft.image} alt={nft.title} />
-                    <NFTNumber>#{nft.id}</NFTNumber>
-                    <OpenSeaLink href={openSeaUrl}>
-                      <img src={`${process.env.PUBLIC_URL}/img/opensea-logo.svg`} alt="OpenSea Logo" />
-                    </OpenSeaLink>
-                  </GridItem>
+                    <GridItem>
+                        <GridItemImage src={nft.image} alt={nft.name} />
+                        <NFTNumber>#{nft.id}</NFTNumber>
+                    </GridItem>
                 );
               })}
             </Grid>

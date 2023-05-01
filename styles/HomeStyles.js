@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 //Animation
 const { motion } = require("framer-motion");
 
@@ -13,23 +14,5 @@ export const HomePageWrapper = styled(motion.div)`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
-    h1 {
-      color:white;
-      font-family: "Tropikal-Bold";
-      text-decoration:none;
-      font-size:35px;
-  
-    }
-
-    a {
-      color:white;
-      font-family: "Tropikal-Bold";
-      text-decoration:none;
-      font-size:25px;
-    }
-
-  
-
-  
+    background-color: #f7f7f9;
 `;

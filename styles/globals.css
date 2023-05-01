@@ -37,18 +37,29 @@ body {
   margin: 0;
   font-family: "oakes-grotesk-regular";
   background:black !important;
+  color: #333333;
+}
+
+h1 {
+  color: #b47ed6;
+  font-family: "oakes-grotesk-regular";
+  text-decoration:none;
+  font-size:35px;
 }
 
 a {
-  color: inherit;
+  color: #7c3cb3;
+  font-family: "oakes-grotesk-regular";
   text-decoration: none;
+  font-size:25px;
+}
+
+body {
+  color: #333333;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
-
-
