@@ -111,16 +111,16 @@ const filterOptions = [
         nft.attributes.Architecture === "Modern" && nft.attributes.Interior === "Space",
     },
     {
-      name: "Full underpass",
+      name: "Full Underpass",
       check: (nft) =>
         nft.attributes.Architecture === "Tokyo Street" &&
         nft.attributes.Midground === "Industrial" &&
         nft.attributes.Background === "Highway",
     },
     {
-      name: "The Real hidden denza",
+      name: "The Real Hidden Denza",
       check: (nft) =>
-        nft.attributes.Architecture === "concrete denza" &&
+        nft.attributes.Architecture === "Concrete Denza" &&
         (nft.attributes.Car === "Tram" || nft.attributes.Car === "Tram Pink" || nft.attributes.Car === "Tram Green" || nft.attributes.Car === "Tram Tagged"),
     },
     {
@@ -140,7 +140,7 @@ const filterOptions = [
     {
       name: "Cat's Dinner Bowl",
       check: (nft) =>
-        nft.attributes.Sky_Element === "Cat Kami" && nft.attributes.Interior === "Fish Bowl",
+        nft.attributes["Sky Element"] === "Cat Kami" && nft.attributes.Interior === "Fish Bowl",
     },
     {
       name: "Triple Pets",
